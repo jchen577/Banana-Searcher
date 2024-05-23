@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class NewBehaviourScript : MonoBehaviour
+public class NewBehaviourScript2 : MonoBehaviour
 {
-    private NavMeshAgent agent;
+    private GameObject banana;
     // Start is called before the first frame update
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
+        banana = GameObject.Find("banana");
     }
 
     // Update is called once per frame
@@ -19,7 +19,7 @@ public class NewBehaviourScript : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             if(Physics.Raycast(ray,out hit)){
-                agent.SetDestination(hit.point);
+                banana.transform.position = hit.point;
             }
         }
     }
