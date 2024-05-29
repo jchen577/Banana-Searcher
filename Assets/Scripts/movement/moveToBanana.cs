@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class NewBehaviourScript : MonoBehaviour
 {
+    public bool started = false;
     private NavMeshAgent agent;
     private GameObject goal;
     // Start is called before the first frame update
@@ -17,6 +18,8 @@ public class NewBehaviourScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        agent.SetDestination(goal.transform.position);
+        if(started == true){
+            agent.SetDestination(goal.transform.position);
+        }
     }
 }

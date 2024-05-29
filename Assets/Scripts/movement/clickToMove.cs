@@ -17,9 +17,11 @@ public class NewBehaviourScript2 : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0)){
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if(Physics.Raycast(ray,out hit)){
-                banana.transform.position = hit.point;
+            if(Input.mousePosition.y < 1200){
+                RaycastHit hit;
+                if(Physics.Raycast(ray,out hit)){
+                    banana.transform.position = hit.point;
+                }
             }
         }
     }
