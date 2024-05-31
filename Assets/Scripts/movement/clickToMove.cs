@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class NewBehaviourScript2 : MonoBehaviour
 {
+    public GameObject Obj;
     private GameObject banana;
     // Start is called before the first frame update
     void Start()
@@ -15,12 +16,14 @@ public class NewBehaviourScript2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0)){
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if(Input.mousePosition.y < 1200){
-                RaycastHit hit;
-                if(Physics.Raycast(ray,out hit)){
-                    banana.transform.position = hit.point;
+        if(Obj.GetComponent<NewBehaviourScript>().started == false){
+            if(Input.GetMouseButtonDown(0)){
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                if(Input.mousePosition.y < transform.position.y+ 1200){
+                    RaycastHit hit;
+                    if(Physics.Raycast(ray,out hit)){
+                        banana.transform.position = hit.point;
+                    }
                 }
             }
         }

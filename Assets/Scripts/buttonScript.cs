@@ -9,6 +9,10 @@ public class buttonScript : MonoBehaviour
     {
         //Obj = GameObject.FindGameObjectWithTag("NewBehaviourScript");
     }
+    void Update(){
+        this.gameObject.transform.position = Camera.main.transform.position;
+        this.gameObject.transform.Translate(-10,-3,-1);
+    }
     private void OnMouseUpAsButton(){
         Obj.GetComponent<NewBehaviourScript>().started = true;
     }
