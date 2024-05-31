@@ -7460,7 +7460,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cf48a8b3cf6dd2419388059afc9ecc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LongCube: {fileID: 233276318054157309, guid: 70ba94acee5e28341a25f2e0c2418b62, type: 3}
+  PlaceObj: {fileID: 233276318054157309, guid: 70ba94acee5e28341a25f2e0c2418b62, type: 3}
+  PreviewObj: {fileID: 233276318054157309, guid: c721f6642a8ec0a459d71f59e238cb8c, type: 3}
 --- !u!4 &745942748
 Transform:
   m_ObjectHideFlags: 0
@@ -24076,7 +24077,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2.784471
-  m_BaseOffset: 1.3922355
+  m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!136 &1582681045
@@ -24199,7 +24200,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 2
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
