@@ -6,26 +6,36 @@ using UnityEngine;
 
 public class BlockSpawner : MonoBehaviour
 {
-    public GameObject LongCube;
+    public GameObject PlaceObj;
+	public GameObject PreviewObj;
+	private GameObject preview;
 
+	void Start(){
+		preview = Instantiate(PreviewObj, transform.position, transform.rotation);
+	}
     // Update is called once per frame
     void Update()
     {
-	// Using a similar method as clickToMove for the bananas
-		if (Input.GetMouseButtonDown(1))
+		// Show preview of block
+		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+		if (Input.mousePosition.y < 1200)
 		{
-			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-			if (Input.mousePosition.y < 1200)
+			RaycastHit hit;
+			if (Physics.Raycast(ray, out hit))
 			{
-				RaycastHit hit;
-				if (Physics.Raycast(ray, out hit))
+				// Show preview of block at mouse
+				preview.transform.position = hit.point;
+
+				// Place block
+				if (Input.GetMouseButtonDown(1))
 				{
 					// Place down a randomly rotated block
 					// int randRotate = Random.Range(0, 180);
 					// Quaternion rot = Quaternion.Euler(0, randRotate, 0);
 
 					Quaternion rot = Quaternion.Euler(0, 0, 0); // No rotation
-					Instantiate(LongCube, hit.point, rot);
+					Instantiate(PlaceObj, hit.point, rot);
+					//Debug.Log("Obj placed at " + hit.point);
 				}
 			}
 		}
