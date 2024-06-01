@@ -12,5 +12,7 @@ public class cameraMovement : MonoBehaviour
         float zAxisValue = Input.GetAxis("Horizontal") * Speed;
 
         transform.position = new Vector3(transform.position.x + xAxisValue, transform.position.y, transform.position.z + zAxisValue);
-    }
+        
+        // notes: camera should have limits so you cant move it tooo far away from play area -ashley
+        }
 }
