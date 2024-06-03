@@ -6,47 +6,65 @@ using UnityEngine;
 
 public class BlockSpawner : MonoBehaviour
 {
-    public GameObject PlaceObj;
-	public GameObject PreviewObj;
+	// Place and Pre list should be in the same order 
+	public List<GameObject> prefabPlaceList = new List<GameObject>();
+	public List<GameObject> prefabPreList = new List<GameObject>();
 	private GameObject preview;
+	private int randIdx;
+	private float timer;
 
 	void Start(){
-		preview = Instantiate(PreviewObj, transform.position, transform.rotation);
+		// Randomize current selected block
+		randIdx = Random.Range(0, prefabPlaceList.Count - 1);
+		preview = Instantiate(prefabPreList[randIdx], transform.position, transform.rotation);
 	}
 
     // Update is called once per frame
     void Update()
     {
-		// note: consider having a cooldown for placing blocks -ashley
-		// probably use a time function or smth, theres probably a standard to it rather than just make a counter var and inc that lol
+		// Timer that controls cooldown of placing down blocks
+		if (timer > -1){ // Don't want to cause an overflow if the timer doesn't get reset
+			timer -= Time.deltaTime;
+		}
 
-		// Show preview of block
+		// Locate mouse pointer in the world
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 		if (Input.mousePosition.y < 1200)
 		{
 			RaycastHit hit;
 			if (Physics.Raycast(ray, out hit))
 			{
-				// Show preview of block at mouse
-				// hit.point -= new Vector3(1.365f, 0f, -0.479f);
+				// Show preview of the block at mouse
 				preview.transform.position = hit.point;
 
 				//at button press, add 90 or sub 90 from rotation
-				if (Input.GetMouseButtonDown(2)) // consider changing to left and right arrow keys
+				//if (Input.GetMouseButtonDown(2)) // consider changing to left and right arrow keys
+				//{
+				//	preview.transform.Rotate(0f, 90f, 0f, Space.Self); // uses euler degrees
+				//}
+				if (Input.GetKeyDown("q"))
 				{
-					preview.transform.Rotate(0f, 90f, 0f, Space.Self); // should be using euler degrees
+					preview.transform.Rotate(0f, 90f, 0f, Space.Self);
+				}
+				if (Input.GetKeyDown("e"))
+				{
+					preview.transform.Rotate(0f, -90f, 0f, Space.Self);
 				}
 
-				// Place block
-				if (Input.GetMouseButtonDown(1))
-				{
-					// Place down a randomly rotated block
-					// int randRotate = Random.Range(0, 180);
-					// Quaternion rot = Quaternion.Euler(0, randRotate, 0);
 
-					Quaternion rot = Quaternion.Euler(0, 0, 0); // No rotation
-					Instantiate(PlaceObj, hit.point, rot);
+				// Place block
+				if (Input.GetMouseButtonDown(1) && timer < 0)
+				{
+					Destroy(preview);
+					Quaternion rot = Quaternion.Euler(preview.transform.eulerAngles);
+					Instantiate(prefabPlaceList[randIdx], hit.point, rot);
 					//Debug.Log("Obj placed at " + hit.point);
+
+
+					// Select new shape to place next
+					randIdx = Random.Range(0, prefabPlaceList.Count);
+					preview = Instantiate(prefabPreList[randIdx], transform.position, transform.rotation);
+					timer = 2; // is equal to seconds
 				}
 			}
 		}

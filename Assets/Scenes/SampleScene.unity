@@ -7460,8 +7460,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cf48a8b3cf6dd2419388059afc9ecc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlaceObj: {fileID: 233276318054157309, guid: 70ba94acee5e28341a25f2e0c2418b62, type: 3}
-  PreviewObj: {fileID: 233276318054157309, guid: c721f6642a8ec0a459d71f59e238cb8c, type: 3}
+  prefabPlaceList:
+  - {fileID: 233276318054157309, guid: 70ba94acee5e28341a25f2e0c2418b62, type: 3}
+  - {fileID: 265190055093419880, guid: 9c7b58c705309bf499eb07945c443453, type: 3}
+  prefabPreList:
+  - {fileID: 233276318054157309, guid: c721f6642a8ec0a459d71f59e238cb8c, type: 3}
+  - {fileID: 265190055093419880, guid: c37dd3dee9c7ae64284fb7ea5a0456f8, type: 3}
 --- !u!4 &745942748
 Transform:
   m_ObjectHideFlags: 0
