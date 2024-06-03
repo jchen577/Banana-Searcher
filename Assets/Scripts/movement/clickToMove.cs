@@ -17,6 +17,7 @@ public class NewBehaviourScript2 : MonoBehaviour
     void Update()
     {
         if(Obj.GetComponent<NewBehaviourScript>().started == false){
+        //if(gameObject.activeSelf == false){
             if(Input.GetMouseButtonDown(0)){
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 if(Input.mousePosition.y < transform.position.y+ 1200){
