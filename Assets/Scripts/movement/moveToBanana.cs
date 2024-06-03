@@ -19,7 +19,10 @@ public class NewBehaviourScript : MonoBehaviour
     void Update()
     {
         if(started == true){
-            agent.SetDestination(goal.transform.position);
+			agent.isStopped = false;
+			agent.SetDestination(goal.transform.position);
+        } else {
+            agent.isStopped = true;
         }
     }
 }

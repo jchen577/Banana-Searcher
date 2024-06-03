@@ -11,6 +11,14 @@ public class cameraMovement : MonoBehaviour
         float xAxisValue = Input.GetAxis("Vertical") * -Speed;
         float zAxisValue = Input.GetAxis("Horizontal") * Speed;
 
-        transform.position = new Vector3(transform.position.x + xAxisValue, transform.position.y, transform.position.z + zAxisValue);
-    }
+        float newX = transform.position.x + xAxisValue;
+        float newZ = transform.position.z + zAxisValue;
+
+        // Limit the camera movement (to keep the game space on screen at all times)
+        if (newX > -6 && newX < 30 && newZ > -15 && newZ < 20)
+        {
+            transform.position = new Vector3(newX, transform.position.y, newZ);
+        }
+        
+        }
 }
