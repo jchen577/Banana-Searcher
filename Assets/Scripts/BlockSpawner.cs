@@ -12,6 +12,7 @@ public class BlockSpawner : MonoBehaviour
 	private GameObject preview;
 	private int randIdx;
 	private float timer;
+	private List<GameObject> placedBlocks = new List<GameObject>();
 
 	void Start(){
 		gameObject.SetActive(false); // Game object not active until start button is pressed and enables it
@@ -64,8 +65,10 @@ public class BlockSpawner : MonoBehaviour
 					{
 						Destroy(preview);
 						Quaternion rot = Quaternion.Euler(preview.transform.eulerAngles);
-						Instantiate(prefabPlaceList[randIdx], hit.point, rot);
+						GameObject finishedBlock = Instantiate(prefabPlaceList[randIdx], hit.point, rot);
+						placedBlocks.Add(finishedBlock);
 						//Debug.Log("Obj placed at " + hit.point);
+						//Debug.Log(placedBlocks.Count);
 
 
 						// Select new shape to place next
@@ -75,10 +78,24 @@ public class BlockSpawner : MonoBehaviour
 					}
 				}
 			}
+		} else {
+			
 		}
 	}
 
 	public void setActive(){
 		gameObject.SetActive(true);
+	}
+
+	public void setInactive()
+	{
+		gameObject.SetActive(false);
+	}
+
+	public void reset(){
+		for (int i = 0; i < placedBlocks.Count; i++){
+			Destroy(placedBlocks[i]);
+		}
+		//Debug.Log("List length is: "+placedBlocks.Count);
 	}
 }

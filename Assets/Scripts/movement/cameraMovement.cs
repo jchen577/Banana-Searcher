@@ -11,7 +11,13 @@ public class cameraMovement : MonoBehaviour
         float xAxisValue = Input.GetAxis("Vertical") * -Speed;
         float zAxisValue = Input.GetAxis("Horizontal") * Speed;
 
-        transform.position = new Vector3(transform.position.x + xAxisValue, transform.position.y, transform.position.z + zAxisValue);
+        float newX = transform.position.x + xAxisValue;
+        float newZ = transform.position.z + zAxisValue;
+
+        if (newX > -6 && newX < 30 && newZ > -15 && newZ < 20)
+        {
+            transform.position = new Vector3(newX, transform.position.y, newZ);
+        }
         
         // notes: camera should have limits so you cant move it tooo far away from play area -ashley
         }

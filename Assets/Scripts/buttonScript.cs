@@ -13,7 +13,11 @@ public class buttonScript : MonoBehaviour
         this.gameObject.transform.position = Camera.main.transform.position;
         this.gameObject.transform.Translate(-10,-3,-1);
     }
-    public void OnMouseUpAsButton(){
+    public void SetStartTrue(){
         Obj.GetComponent<NewBehaviourScript>().started = true;
     }
+	public void SetStartFalse()
+	{
+		Obj.GetComponent<NewBehaviourScript>().started = false;
+	}
 }
