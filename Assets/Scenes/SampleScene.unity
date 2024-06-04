@@ -1573,6 +1573,54 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1582681049}
+        m_TargetAssemblyTypeName: NewBehaviourScript, Assembly-CSharp
+        m_MethodName: resetMonkey
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2045730564}
+        m_TargetAssemblyTypeName: Timertext, Assembly-CSharp
+        m_MethodName: resetTime
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1170042988}
+        m_TargetAssemblyTypeName: EnableDisableScript, Assembly-CSharp
+        m_MethodName: disableObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1204109432}
+        m_TargetAssemblyTypeName: EnableDisableScript, Assembly-CSharp
+        m_MethodName: disableObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1002370237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1634,6 +1682,7 @@ GameObject:
   - component: {fileID: 1170042985}
   - component: {fileID: 1170042987}
   - component: {fileID: 1170042986}
+  - component: {fileID: 1170042988}
   m_Layer: 5
   m_Name: Win
   m_TagString: Untagged
@@ -1757,6 +1806,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1170042984}
   m_CullTransparentMesh: 1
+--- !u!114 &1170042988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170042984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1da2d53c3729726439abc7e67378f337, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1204109428
 GameObject:
   m_ObjectHideFlags: 0
@@ -1768,6 +1829,7 @@ GameObject:
   - component: {fileID: 1204109429}
   - component: {fileID: 1204109431}
   - component: {fileID: 1204109430}
+  - component: {fileID: 1204109432}
   m_Layer: 5
   m_Name: Lose
   m_TagString: Untagged
@@ -1891,6 +1953,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1204109428}
   m_CullTransparentMesh: 1
+--- !u!114 &1204109432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1204109428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1da2d53c3729726439abc7e67378f337, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1208620729
 GameObject:
   m_ObjectHideFlags: 0
@@ -2013,7 +2087,31 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 745942747}
         m_TargetAssemblyTypeName: BlockSpawner, Assembly-CSharp
-        m_MethodName: setActive
+        m_MethodName: setInactive
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1170042988}
+        m_TargetAssemblyTypeName: EnableDisableScript, Assembly-CSharp
+        m_MethodName: enableObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1204109432}
+        m_TargetAssemblyTypeName: EnableDisableScript, Assembly-CSharp
+        m_MethodName: enableObject
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -14722,7 +14820,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 100, y: 600}
+  m_AnchoredPosition: {x: 50, y: 487}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2045730562
@@ -14839,6 +14937,7 @@ MonoBehaviour:
   losingText: {fileID: 1204109430}
   Obj: {fileID: 1582681043}
   agent: {fileID: 1582681044}
+  endGame: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

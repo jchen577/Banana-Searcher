@@ -15,7 +15,6 @@ public class BlockSpawner : MonoBehaviour
 	private List<GameObject> placedBlocks = new List<GameObject>();
 
 	void Start(){
-		gameObject.SetActive(true); // Game object not active until start button is pressed and enables it
 		// Randomize current selected block
 		randIdx = Random.Range(0, prefabPlaceList.Count - 1);
 		preview = Instantiate(prefabPreList[randIdx], transform.position, transform.rotation);
@@ -74,7 +73,7 @@ public class BlockSpawner : MonoBehaviour
 						// Select new shape to place next
 						randIdx = Random.Range(0, prefabPlaceList.Count);
 						preview = Instantiate(prefabPreList[randIdx], transform.position, transform.rotation);
-						timer = 2; // is equal to seconds
+						timer = 0.5f; // is equal to seconds
 					}
 				}
 			}
@@ -85,17 +84,21 @@ public class BlockSpawner : MonoBehaviour
 
 	public void setActive(){
 		gameObject.SetActive(true);
+		preview.SetActive(true);
 	}
 
 	public void setInactive()
 	{
 		gameObject.SetActive(false);
+		preview.SetActive(false);
 	}
 
 	public void reset(){
 		for (int i = 0; i < placedBlocks.Count; i++){
 			Destroy(placedBlocks[i]);
 		}
+		gameObject.SetActive(true);
+		preview.SetActive(true);
 		//Debug.Log("List length is: "+placedBlocks.Count);
 	}
 }

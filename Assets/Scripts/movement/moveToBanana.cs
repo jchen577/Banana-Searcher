@@ -25,4 +25,9 @@ public class NewBehaviourScript : MonoBehaviour
             agent.isStopped = true;
         }
     }
+
+    public void resetMonkey(){
+        agent.isStopped = true;
+        agent.transform.position = new Vector3(-16.5f, 0.4939151f, 16.48f);
+    }
 }
