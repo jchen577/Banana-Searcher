@@ -15,7 +15,7 @@ public class BlockSpawner : MonoBehaviour
 	private List<GameObject> placedBlocks = new List<GameObject>();
 
 	void Start(){
-		gameObject.SetActive(false); // Game object not active until start button is pressed and enables it
+		gameObject.SetActive(true); // Game object not active until start button is pressed and enables it
 		// Randomize current selected block
 		randIdx = Random.Range(0, prefabPlaceList.Count - 1);
 		preview = Instantiate(prefabPreList[randIdx], transform.position, transform.rotation);

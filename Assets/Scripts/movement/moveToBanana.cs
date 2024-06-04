@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class NewBehaviourScript : MonoBehaviour
 {
     public bool started = false;
-    private NavMeshAgent agent;
+    public NavMeshAgent agent;
     private GameObject goal;
     // Start is called before the first frame update
     void Start()
